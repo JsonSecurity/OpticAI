@@ -54,7 +54,6 @@ script="${bol}$bord [$W ${info}OpticSHK${bord} ]"
 IMG_PATH_2=""
 BASEURL="https://generativelanguage.googleapis.com"
 APIKEY=$(cat .APIKEY 2>/dev/null)
-PROMT=$(cat promt.txt 2>/dev/null)
 
 tmp_header_file=upload-header.tmp
 
@@ -79,20 +78,18 @@ banner() {
      .:dkxdONMMMMMMMMN00XO:.                       
   .,cloc,.   'lxO00Odc'..;lddo;.                    
 .';;'.           ..         .,cc:'                  
-                                ..                                                                                                                                                 
-  $autor $script$W                                                                                                                                   
-	"""
+                                ..
+ $autor $script$W\n"""
 }
 
 help() {
 	echo -e """\n [+] Usage: 
 
- # All options	
- 	$0 -p <promt>		# promt default promt.txt
- 	$0 -n <name.jpg> 		# name save image
- 	$0 -i <image>		# path image
- 	$0 -d <url>			# download image
- 	$0 -s 			# silent mode"""
+ $0 -p <promt>	# promt
+ $0 -n <name.jpg> 	# name save image
+ $0 -i <image>	# path image
+ $0 -d <url>		# download image
+ $0 -s 		# silent mode"""
 }
 
 verify() {
