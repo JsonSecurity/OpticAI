@@ -232,7 +232,7 @@ opticia() {
 	response
 }
 
-silentTauroIA() {
+silentOpticAI() {
 	verifyOptions
 	uploadFile
 	fileUploads
@@ -257,7 +257,7 @@ while getopts h,i:,d:,p:,n:,s arg;do
 	esac
 done
 if [[ $SILENT ]];then
-	silentTauroIA
+	silentOpticAI
 else
 	opticia
 fi
