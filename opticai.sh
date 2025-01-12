@@ -47,13 +47,14 @@ YN="$bord[${cent}Y${bord}/${cent}N${bord}]${excr}"
 
 #info
 autor="${bol}$bord [$W ${info}Json Security${bord} ]"
-script="${bol}$bord [$W ${info}OpticSHK${bord} ]"
+script="${bol}$bord [$W ${info}OpticIA${bord} ]"
 
 
 # Variables globales
 IMG_PATH_2=""
 BASEURL="https://generativelanguage.googleapis.com"
 APIKEY=$(cat .APIKEY 2>/dev/null)
+PROMT=$(cat promt.txt 2>/dev/null)
 
 tmp_header_file=upload-header.tmp
 
@@ -63,33 +64,27 @@ if [[ ! -n $APIKEY ]];then
 fi
 
 banner() {
-	echo -e """$W
-               ..                                  
-               ,;                                  
-               ;c.                                 
-               lk,                                 
- .,         ,dKWKxc'                              
- .l'      ,xNMMMMMWXx;.                           
- .do..;:ckNMMMMMMMMMMNd.                          
-  oXOKWWMMMMMMMMMMMMMMNl                          
- .o0kKNWMMMMMMMMMMMMMMMx.                         
- .o:..,oXMMMMMMMMMMMMMMx.                         
- .,.   cXMMMMMMMMMMMMMWk.                         
-     .:dkxdONMMMMMMMMN00XO:.                       
-  .,cloc,.   'lxO00Odc'..;lddo;.                    
-.';;'.           ..         .,cc:'                  
-                                ..
- $autor $script$W\n"""
+	echo -e """$R
+________          __  .__          _____  .___ 
+\_____  \ _______/  |_|__| ____   /  _  \ |   |
+ /   |   \\____  \   __\  |/ ___\ /  /_\  \|   |
+/    |    \  |_> >  | |  \  \___/    |    \   |
+\_______  /   __/|__| |__|\___  >____|__  /___|
+        \/|__|                \/        \/     
+	"""
 }
 
 help() {
 	echo -e """\n [+] Usage: 
 
- $0 -p <promt>	# promt
- $0 -n <name.jpg> 	# name save image
- $0 -i <image>	# path image
- $0 -d <url>		# download image
- $0 -s 		# silent mode"""
+  $0 -p <promt>		# promt default promt.txt
+  $0 -i <image>		# path image
+  
+  $0 -d <url>			# download image
+  $0 -n <name.jpg> 		# name save image
+  
+  $0 -s 			# silent mode
+"""
 }
 
 verify() {
@@ -221,7 +216,7 @@ verifyOptions() {
 	DISPLAY_NAME=TEXT
 }
 
-opticshk() {
+opticia() {
 	verifyOptions
 
 	banner
@@ -264,5 +259,5 @@ done
 if [[ $SILENT ]];then
 	silentTauroIA
 else
-	opticshk
+	opticia
 fi
